@@ -1,0 +1,16 @@
+Dawpal\TestBundle\Entity\Post:
+    type: entity
+    table: null
+    repositoryClass: Dawpal\TestBundle\Entity\PostRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        pole:
+            type: string
+            length: 255
+        test:
+            type: integer
+    lifecycleCallbacks: {  }

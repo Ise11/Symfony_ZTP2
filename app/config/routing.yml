@@ -1,0 +1,4 @@
+dawpal_test:
+    resource: "@DawpalTestBundle/Resources/config/routing.yml"
+    prefix:   /
+
