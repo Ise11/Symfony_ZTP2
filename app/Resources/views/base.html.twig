@@ -7,9 +7,12 @@
 
         <meta name="description" content="">
         <meta name="author" content="">
-
-
         {% block stylesheets %}{% endblock %}
+        {% stylesheets
+        "css/my-style.css"
+        %}
+        <link rel="stylesheets" href="{{ asset_url }}"
+        {% endstylesheets %}
 
         <title>{% block title %}Welcome!{% endblock %}</title>
 
@@ -17,6 +20,8 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        {% include 'topnav.html.twig' %}
+
         <div class="container">
             {% block content %}{% endblock %}
         </div>
