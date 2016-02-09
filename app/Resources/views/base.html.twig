@@ -2,13 +2,24 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+
         {% block stylesheets %}{% endblock %}
+
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
         <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
 
         <script href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.2/jquery.min.js"> </script>
         <script href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"> </script>
