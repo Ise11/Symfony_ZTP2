@@ -9,9 +9,9 @@
         <meta name="author" content="">
         {% block stylesheets %}{% endblock %}
         {% stylesheets
-        "css/my-style.css"
+        'css/my-style.css'
         %}
-        <link rel="stylesheets" href="{{ asset_url }}"
+        <link rel="stylesheets" href="{{ asset_url }}" />
         {% endstylesheets %}
 
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -21,7 +21,7 @@
     </head>
     <body>
         {% include 'topnav.html.twig' %}
-
+        <br><br><br>
         <div class="container">
             {% block content %}{% endblock %}
         </div>

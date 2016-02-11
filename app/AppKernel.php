@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new Dawpal\TestBundle\DawpalTestBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Forum\UserBundle\ForumUserBundle(),
+            new Forum\CategoryBundle\ForumCategoryBundle(),
+            new Forum\TopicBundle\ForumTopicBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

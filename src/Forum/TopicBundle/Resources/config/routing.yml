@@ -1,0 +1,3 @@
+forum_topic_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ForumTopicBundle:Default:index }

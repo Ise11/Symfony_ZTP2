@@ -1,7 +1,13 @@
 parameters:
 #    forum_user.example.class: Forum\UserBundle\Example
 
+
 services:
+#    forum_user.password_resetting:
+#        class: Forum\UserBundle\EventListener\PasswordResettingListener
+#        arguments: [@router]
+#        tags:
+#            - { name: kernel.event_subscriber }
 #    forum_user.example:
 #        class: %forum_user.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]

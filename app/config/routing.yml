@@ -1,3 +1,11 @@
+forum_topic:
+    resource: "@ForumTopicBundle/Resources/config/routing.yml"
+    prefix:   /
+
+forum_category:
+    resource: "@ForumCategoryBundle/Resources/config/routing.yml"
+    prefix:   /
+
 forum_user:
     resource: "@ForumUserBundle/Resources/config/routing.yml"
     prefix:   /

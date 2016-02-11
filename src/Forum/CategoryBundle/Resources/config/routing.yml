@@ -1,0 +1,7 @@
+forum_category_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ForumCategoryBundle:Default:index }
+
+ForumCategoryBundle_category:
+        resource: "@ForumCategoryBundle/Resources/config/routing/category.yml"
+        prefix:   /category
