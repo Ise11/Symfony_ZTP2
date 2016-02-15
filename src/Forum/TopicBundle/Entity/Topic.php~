@@ -28,7 +28,19 @@ class Topic
      */
     private $name;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="text")
+     */
+    private $content;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
 
     /**
      * @var
@@ -80,73 +92,49 @@ class Topic
         return $this->name;
     }
 
-
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-//        $this->post = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
-     * Set category
+     * Set content
      *
-     * @param \Forum\CategoryBundle\Entity\Category $category
+     * @param string $content
      * @return Topic
      */
-    public function setCategory(\Forum\CategoryBundle\Entity\Category $category = null)
+    public function setContent($content)
     {
-        $this->category = $category;
+        $this->content = $content;
     
         return $this;
     }
 
     /**
-     * Get category
+     * Get content
      *
-     * @return \Forum\CategoryBundle\Entity\Category 
+     * @return string 
      */
-    public function getCategory()
+    public function getContent()
     {
-        return $this->category;
+        return $this->content;
     }
 
     /**
-     * Add post
+     * Set date
      *
-     * @param \Forum\PostBundle\Entity\Post $post
+     * @param \DateTime $date
      * @return Topic
      */
-    public function setPost(\Forum\PostBundle\Entity\Post $post)
+    public function setDate($date)
     {
-        $this->post[] = $post;
+        $this->date = $date;
     
         return $this;
     }
 
     /**
-     * Remove post
+     * Get date
      *
-     * @param \Forum\PostBundle\Entity\Post $post
+     * @return \DateTime 
      */
-    public function removePost(\Forum\PostBundle\Entity\Post $post)
+    public function getDate()
     {
-        $this->post->removeElement($post);
-    }
-
-    /**
-     * Get post
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getPost()
-    {
-        return $this->post;
-    }
-
-    public function __toString()
-    {
-        return $this->getName();
+        return $this->date;
     }
 }

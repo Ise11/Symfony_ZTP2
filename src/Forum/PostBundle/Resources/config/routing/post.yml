@@ -1,0 +1,30 @@
+post:
+    path:     /{topicId}
+    defaults: { _controller: "ForumPostBundle:Post:index" }
+
+post_show:
+    path:     /{id}/show
+    defaults: { _controller: "ForumPostBundle:Post:show" }
+
+post_new:
+    path:     /new/{id}
+    defaults: { _controller: "ForumPostBundle:Post:new" }
+
+post_create:
+    path:     /create
+    defaults: { _controller: "ForumPostBundle:Post:create" }
+    requirements: { _method: post }
+
+post_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ForumPostBundle:Post:edit" }
+
+post_update:
+    path:     /{id}/update
+    defaults: { _controller: "ForumPostBundle:Post:update" }
+    requirements: { _method: post|put }
+
+post_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ForumPostBundle:Post:delete" }
+    requirements: { _method: post|delete }

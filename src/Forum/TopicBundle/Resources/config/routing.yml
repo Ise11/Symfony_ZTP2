@@ -1,3 +1,7 @@
 forum_topic_homepage:
     path:     /hello/{name}
     defaults: { _controller: ForumTopicBundle:Default:index }
+
+ForumTopicBundle_topic:
+    resource: "@ForumTopicBundle/Resources/config/routing/topic.yml"
+    prefix:   /topic

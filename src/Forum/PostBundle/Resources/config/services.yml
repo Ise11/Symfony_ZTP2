@@ -1,0 +1,7 @@
+parameters:
+#    forum_post.example.class: Forum\PostBundle\Example
+
+services:
+#    forum_post.example:
+#        class: %forum_post.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

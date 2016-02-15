@@ -1,0 +1,7 @@
+forum_post_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ForumPostBundle:Default:index }
+
+ForumPostBundle_post:
+    resource: "@ForumPostBundle/Resources/config/routing/post.yml"
+    prefix:   /post

@@ -1,3 +1,7 @@
+forum_post:
+    resource: "@ForumPostBundle/Resources/config/routing.yml"
+    prefix:   /
+
 forum_topic:
     resource: "@ForumTopicBundle/Resources/config/routing.yml"
     prefix:   /
@@ -10,9 +14,6 @@ forum_user:
     resource: "@ForumUserBundle/Resources/config/routing.yml"
     prefix:   /
 
-dawpal_test:
-    resource: "@DawpalTestBundle/Resources/config/routing.yml"
-    prefix:   /
 
 # app/config/routing.yml
 fos_user:

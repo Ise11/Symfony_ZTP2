@@ -68,49 +68,4 @@ class Category
     {
         return $this->name;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->topic = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
-     * Add topic
-     *
-     * @param \Forum\TopicBundle\Entity\Topic $topic
-     * @return Category
-     */
-    public function addTopic(\Forum\TopicBundle\Entity\Topic $topic)
-    {
-        $this->topic[] = $topic;
-    
-        return $this;
-    }
-
-    /**
-     * Remove topic
-     *
-     * @param \Forum\TopicBundle\Entity\Topic $topic
-     */
-    public function removeTopic(\Forum\TopicBundle\Entity\Topic $topic)
-    {
-        $this->topic->removeElement($topic);
-    }
-
-    /**
-     * Get topic
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getTopic()
-    {
-        return $this->topic;
-    }
-
-    public function __toString()
-    {
-        return $this->getName();
-    }
 }

@@ -1,6 +1,0 @@
-dawpal_test_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: DawpalTestBundle:Default:index }
-DawpalTestBundle_post:
-        resource: "@DawpalTestBundle/Resources/config/routing/post.yml"
-        prefix:   /post

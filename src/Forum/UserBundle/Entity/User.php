@@ -14,6 +14,15 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     *
+     */
+    protected $username;
+    /**
+     * @ORM\OneToMany(targetEntity="Forum\PostBundle\Entity\Post", mappedBy="userId")
+     */
+    protected $post;
+
 
     /**
      * Get id
