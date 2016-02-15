@@ -5,3 +5,8 @@ forum_topic_homepage:
 ForumTopicBundle_topic:
     resource: "@ForumTopicBundle/Resources/config/routing/topic.yml"
     prefix:   /topic
+
+ForumTopicBundle_topic:
+    resource: "@ForumTopicBundle/Resources/config/routing/topic.yml"
+    prefix:   /
+

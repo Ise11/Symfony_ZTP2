@@ -22,16 +22,17 @@
             Back to the list
         </a>
     </li>
-    <li>
-        <a href="{{ path('topic_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
+    {#<li>#}
+        {#<a href="{{ path('topic_edit', { 'id': entity.id }) }}">#}
+            {#Edit#}
+        {#</a>#}
+    {#</li>#}
+    {#<li>{{ form(delete_form) }}</li>#}
 </ul>
 
     {% for post in entity.post %}
-        {{ dump(post.message) }}
+        {{ post.userId }} :
+        {{ post.message }} <br>
     {% endfor %}
 
 {% endblock %}

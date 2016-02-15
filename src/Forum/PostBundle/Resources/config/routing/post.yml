@@ -3,7 +3,7 @@ post:
     defaults: { _controller: "ForumPostBundle:Post:index" }
 
 post_show:
-    path:     /{id}/show
+    path:     /{id}
     defaults: { _controller: "ForumPostBundle:Post:show" }
 
 post_new:

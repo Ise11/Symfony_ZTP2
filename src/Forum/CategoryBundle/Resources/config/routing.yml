@@ -5,7 +5,7 @@ forum_category_homepage:
 ForumCategoryBundle_category:
         resource: "@ForumCategoryBundle/Resources/config/routing/category.yml"
         prefix:   /category
-
-ForumCategoryBundle_category:
-        resource: "@ForumCategoryBundle/Resources/config/routing/category.yml"
-        prefix:   /
+#
+#ForumCategoryBundle_category:
+#        resource: "@ForumCategoryBundle/Resources/config/routing/category.yml"
+#        prefix:   /

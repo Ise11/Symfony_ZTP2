@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block content -%}
-    <h1>Topic list</h1>
+    <h1>Lista tematów</h1>
 
     {% if is_granted('ROLE_ADMIN') %}
     test
@@ -10,25 +10,27 @@
     <table class="records_list">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Actions</th>
+                <th>Kategoria</th>
+                <th>Temat</th>
+                <th>*</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('topic_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.name }}</td>
+                {#<td>{{ entity.category_id }}</td>#}
+                <td></td>
+                <td><a href="{{ path('topic_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('topic_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('topic_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                    <ul class="record_actions">
+
+
+                    <a href="{{ path('topic_edit', { 'id': entity.id }) }}">edytuj</a> |
+                    <a href="{{ path('post_show', { 'id': entity.id }) }}">show</a> |
+                        usuń
+                    {#<li>{{ form(delete_form) }}<li>#}
+
+                    </ul>
                 </td>
             </tr>
         {% endfor %}
@@ -36,10 +38,10 @@
     </table>
 
         <ul>
-        <li>
-            <a href="{{ path('topic_new') }}">
-                Create a new entry
+
+            <a class="btn btn-primary" href="{{ path('topic_new') }}">
+                Utwórz nowy temat
             </a>
-        </li>
+
     </ul>
     {% endblock %}
