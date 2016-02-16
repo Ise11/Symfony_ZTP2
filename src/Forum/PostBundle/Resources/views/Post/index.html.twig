@@ -1,9 +1,16 @@
 {% extends '::base.html.twig' %}
 
 {% block content -%}
-    <h1>Post list</h1>
 
-    <table class="records_list">
+    {% set break = false %}
+    {% for entity in entities if not break %}
+        <h2>{{ entity.topic }}</h2>
+        {% set break = true %}
+
+    {% endfor %}
+
+
+    <table class="records_list table table-striped">
         <thead>
             <tr>
                 <th>Author</th>
@@ -22,12 +29,11 @@
                 <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                 <ul>
-                    <li>
-                        <a href="{{ path('post_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
+
+                        <a href="{{ path('post_show', { 'id': entity.id }) }}">show</a> |
+
                         <a href="{{ path('post_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
+
                 </ul>
                 </td>
             </tr>
@@ -36,10 +42,10 @@
     </table>
 
         <ul>
-        <li>
+
             <a href="{{ path('post_new', { 'id': topicId }) }}">
-                Create a new entry
+               Odpowiedz
             </a>
-        </li>
+
     </ul>
     {% endblock %}

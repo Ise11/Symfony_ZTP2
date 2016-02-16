@@ -1,37 +1,73 @@
 {% extends '::base.html.twig' %}
 
 {% block content -%}
+<div class="row">
     <h1>Lista tematów</h1>
 
-    {% if is_granted('ROLE_ADMIN') %}
-    test
-    {% endif %}
+    <div class="col-sm-4 form-group">
 
-    <table class="records_list">
+        <select class="form-control" id="sel1" >
+            <option>Wybierz kategorie</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+    </div>
+    <label> </label>
+    <div class="col-sm-4 ">
+        {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('category_new') }}">
+            Utwórz nową kategorie
+        </a> |
+
+        <a href="{{ path('category') }}">
+            Zarządzaj kategoriami
+        </a>
+        {% endif %}
+    </div>
+
+</div>
+
+{#{% arr = array() %}#}
+
+{#{% for entity in entities %}#}
+
+
+{#{% endfor %}#}
+
+
+
+
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Kategoria</th>
                 <th>Temat</th>
+                {% if is_granted('ROLE_ADMIN') %}
                 <th>*</th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                {#<td>{{ entity.category_id }}</td>#}
-                <td></td>
+                <td>{{ entity.category }}</td>
                 <td><a href="{{ path('topic_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+                {% if is_granted('ROLE_ADMIN') %}
                 <td>
                     <ul class="record_actions">
 
-
                     <a href="{{ path('topic_edit', { 'id': entity.id }) }}">edytuj</a> |
                     <a href="{{ path('post_show', { 'id': entity.id }) }}">show</a> |
-                        usuń
-                    {#<li>{{ form(delete_form) }}<li>#}
+
+                        {% set delete_form = delete_forms[loop.index0] %}
+                        {{ form_start(delete_form) }}
+                        {#<input type="submit" value="Delete" />#}
+                        {{ form_end(delete_form) }}
 
                     </ul>
                 </td>
+                {% endif %}
             </tr>
         {% endfor %}
         </tbody>

@@ -32,8 +32,20 @@ class TopicController extends Controller
 
         $entities = $em->getRepository('ForumTopicBundle:Topic')->findAll();
 
+
+
+        $delete_forms = array_map(
+            function ($element) {
+                return $this->createDeleteForm($element->getId())->createView();
+            }
+            , $entities
+        );
+
+
         return $this->render('ForumTopicBundle:Topic:index.html.twig', array(
             'entities' => $entities,
+            'delete_forms' => $delete_forms
+
         ));
     }
     /**
