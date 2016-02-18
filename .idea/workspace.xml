@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="495bb7fa-b08d-41be-aa36-fa78f1353d11" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/topnav.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/topnav.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Forum/CategoryBundle/Resources/views/Category/edit.html.twig" afterPath="$PROJECT_DIR$/src/Forum/CategoryBundle/Resources/views/Category/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Forum/CategoryBundle/Resources/views/Category/index.html.twig" afterPath="$PROJECT_DIR$/src/Forum/CategoryBundle/Resources/views/Category/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Forum/CategoryBundle/Resources/views/Category/new.html.twig" afterPath="$PROJECT_DIR$/src/Forum/CategoryBundle/Resources/views/Category/new.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Forum/CategoryBundle/Resources/views/Category/show.html.twig" afterPath="$PROJECT_DIR$/src/Forum/CategoryBundle/Resources/views/Category/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Forum/PostBundle/Resources/views/Post/edit.html.twig" afterPath="$PROJECT_DIR$/src/Forum/PostBundle/Resources/views/Post/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Forum/TopicBundle/Form/TopicType.php" afterPath="$PROJECT_DIR$/src/Forum/TopicBundle/Form/TopicType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Forum/TopicBundle/Resources/views/Topic/edit.html.twig" afterPath="$PROJECT_DIR$/src/Forum/TopicBundle/Resources/views/Topic/edit.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Forum/TopicBundle/Resources/views/Topic/index.html.twig" afterPath="$PROJECT_DIR$/src/Forum/TopicBundle/Resources/views/Topic/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Forum/TopicBundle/Resources/views/Topic/new.html.twig" afterPath="$PROJECT_DIR$/src/Forum/TopicBundle/Resources/views/Topic/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Forum/TopicBundle/Resources/views/Topic/show.html.twig" afterPath="$PROJECT_DIR$/src/Forum/TopicBundle/Resources/views/Topic/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Forum/UserBundle/Form/UserType.php" afterPath="$PROJECT_DIR$/src/Forum/UserBundle/Form/UserType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Forum/UserBundle/Resources/views/User/edit.html.twig" afterPath="$PROJECT_DIR$/src/Forum/UserBundle/Resources/views/User/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Forum/UserBundle/Resources/views/User/index.html.twig" afterPath="$PROJECT_DIR$/src/Forum/UserBundle/Resources/views/User/index.html.twig" />
     </list>
     <ignored path="my_project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,18 +28,8 @@
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Forum/TopicBundle/Resources/views/Topic/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.3333335">
-              <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Category.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Forum/CategoryBundle/Entity/Category.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.333334">
-              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state vertical-scroll-proportion="-6.5185184">
+              <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -61,7 +38,7 @@
       <file leaf-file-name="Topic.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Forum/TopicBundle/Entity/Topic.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-84.296295">
+            <state vertical-scroll-proportion="-73.0">
               <caret line="145" column="5" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
               <folding>
                 <marker date="1455447912878" expanded="true" signature="140:1286" placeholder="{...}" />
@@ -73,8 +50,8 @@
       <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Forum/TopicBundle/Resources/views/Topic/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.851852">
-              <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+            <state vertical-scroll-proportion="-16.25926">
+              <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -83,8 +60,8 @@
       <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Forum/CategoryBundle/Resources/views/Category/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22711864">
-              <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.6322034">
+              <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -93,8 +70,8 @@
       <file leaf-file-name="Post.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Forum/PostBundle/Entity/Post.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.037037">
-              <caret line="49" column="82" selection-start-line="49" selection-start-column="82" selection-end-line="49" selection-end-column="82" />
+            <state vertical-scroll-proportion="-4.037037">
+              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -1106,12 +1083,12 @@
       <workItem from="1454847201614" duration="3961000" />
       <workItem from="1455014036354" duration="29489000" />
       <workItem from="1455532811183" duration="16579000" />
-      <workItem from="1455632937675" duration="33670000" />
+      <workItem from="1455632937675" duration="35090000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100326000" />
+    <option name="totallyTimeSpent" value="101746000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1551,9 +1528,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Forum/PostBundle/Entity/Post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.037037">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Forum/CategoryBundle/Entity/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0677966">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Forum/TopicBundle/Entity/Topic.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-84.296295">
+        <state vertical-scroll-proportion="-73.0">
           <caret line="145" column="5" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
           <folding>
             <marker date="1455447912878" expanded="true" signature="140:1286" placeholder="{...}" />
@@ -1563,40 +1556,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Forum/TopicBundle/Resources/views/Topic/show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.851852">
-          <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Forum/CategoryBundle/Entity/Category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.333334">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state vertical-scroll-proportion="-16.25926">
+          <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Forum/TopicBundle/Resources/views/Topic/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.3333335">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Forum/PostBundle/Entity/Post.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.037037">
-          <caret line="49" column="82" selection-start-line="49" selection-start-column="82" selection-end-line="49" selection-end-column="82" />
+        <state vertical-scroll-proportion="-6.5185184">
+          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Forum/CategoryBundle/Resources/views/Category/show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22711864">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.6322034">
+          <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
           <folding />
         </state>
       </provider>

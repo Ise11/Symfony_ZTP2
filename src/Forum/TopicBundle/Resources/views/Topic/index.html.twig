@@ -2,34 +2,12 @@
 
 {% block content -%}
 <div class="row">
-    {#<h1>Lista tematów</h1>#}
     <div class="col-sm-2">
         <a class="btn btn-primary" href="{{ path('topic_new') }}">
             Utwórz nowy temat
         </a>
     </div>
 
-    {#<div class="col-sm-4 form-group">#}
-
-        {#&#123;&#35;{% $kategorie  %}&#35;&#125;#}
-        {#&#123;&#35;{% for entity in entities %}&#35;&#125;#}
-            {#&#123;&#35;{% array_push($kategorie, entity.category  %}&#35;&#125;#}
-        {#&#123;&#35;{% endfor %}&#35;&#125;#}
-        {#&#123;&#35;$select= array_unique($input);&#35;&#125;#}
-
-        {#&#123;&#35;{% for kategoria in select %}&#35;&#125;#}
-        {#&#123;&#35;<option>kategoria</option>&#35;&#125;#}
-        {#&#123;&#35;{endfor}&#35;&#125;#}
-
-        {#<select class="form-control" id="sel1" >#}
-            {#<option>Wybierz kategorie</option>#}
-
-        {#</select>#}
-
-
-
-
-    {#</div>#}
     <label> </label>
     <div class="col-sm-4 ">
         {% if is_granted('ROLE_ADMIN') %}
@@ -44,25 +22,12 @@
 
 </div>
 
-{#{% arr = array() %}#}
-
-{#{% for entity in entities %}#}
-
-
-{#{% endfor %}#}
-
-    <ul>
-
-
-
-    </ul>
-
-
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>Kategoria</th>
                 <th>Temat</th>
+                <th>Autor</th>
                 {% if is_granted('ROLE_ADMIN') %}
                 <th></th>
                 {% endif %}
@@ -71,17 +36,15 @@
 
         <tbody>
         {% for entity in entities %}
+
             <tr>
                 {##}
                 <td><a href="{{ path('category_show', { 'id': entity.category.id }) }}">{{ entity.category }}</a></td>
-                {#<td><a href="{{ path('topic_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>#}
                 <td><a href="{{ path('topic_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+                <td>{{ entity.post[0].userId }}</td>
                 {% if is_granted('ROLE_ADMIN') %}
                 <td>
-                    {#<ul class="record_actions">#}
                     <a class="" href="{{ path('topic_edit', { 'id': entity.id }) }}">Edytuj/Usuń</a>
-                    {#<a href="{{ path('post_show', { 'id': entity.id }) }}">show</a> |#}
-                    {#</ul>#}
                 </td>
                     {#<td> {% set delete_form = delete_forms[loop.index0] %}#}
                         {#{{ form_start(delete_form) }}#}
@@ -90,6 +53,7 @@
                     {#</td>#}
                 {% endif %}
             </tr>
+
         {% endfor %}
         </tbody>
     </table>
