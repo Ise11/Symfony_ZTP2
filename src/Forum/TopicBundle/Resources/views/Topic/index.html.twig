@@ -13,10 +13,14 @@
 
         <select class="form-control" id="sel1" >
             <option>Wybierz kategorie</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
+            {% for entity in entities %}
+            <option>{{ entity.category  }}</option>
+            {% endfor %}
         </select>
+
+
+
+
     </div>
     <label> </label>
     <div class="col-sm-4 ">

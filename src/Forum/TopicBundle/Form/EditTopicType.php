@@ -17,7 +17,7 @@ class EditTopicType extends AbstractType
         $builder
             ->add('name')
 //            ->add('content')
-            ->add('date')
+//            ->add('date')
             ->add('category')
         ;
     }

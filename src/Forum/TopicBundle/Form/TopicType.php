@@ -18,7 +18,8 @@ class TopicType extends AbstractType
         $builder
             ->add('name')
 //            ->add('content')
-//            ->add('date')
+            ->add('date')
+
             ->add('category')
             ->add('post', new PostType())
         ;

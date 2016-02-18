@@ -32,7 +32,7 @@ class TopicController extends Controller
 
         $entities = $em->getRepository('ForumTopicBundle:Topic')->findAll();
 
-
+//        $categories = array()
 
         $delete_forms = array_map(
             function ($element) {
