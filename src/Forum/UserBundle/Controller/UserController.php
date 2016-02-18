@@ -1,47 +1,41 @@
 <?php
 
-namespace Forum\PostBundle\Controller;
+namespace Forum\UserBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Forum\PostBundle\Entity\Post;
-use Forum\PostBundle\Form\PostType;
+use Forum\UserBundle\Entity\User;
+use Forum\UserBundle\Form\UserType;
 
 /**
- * Post controller.
+ * User controller.
  *
  */
-class PostController extends Controller
+class UserController extends Controller
 {
 
     /**
-     * Lists all Post entities.
+     * Lists all User entities.
      *
      */
-    public function indexAction($topicId)
+    public function indexAction()
     {
-
-        echo $topicId;
-
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('ForumPostBundle:Post')->findByTopic($topicId);
+        $entities = $em->getRepository('ForumUserBundle:User')->findAll();
 
-        return $this->render('ForumPostBundle:Post:index.html.twig', array(
+        return $this->render('ForumUserBundle:User:index.html.twig', array(
             'entities' => $entities,
-            'topicId' => $topicId,
         ));
     }
     /**
-     * Creates a new Post entity.
+     * Creates a new User entity.
      *
      */
     public function createAction(Request $request)
     {
-        $entity = new Post();
-        $entity->setUserId($this->getUser());
-
+        $entity = new User();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -50,26 +44,26 @@ class PostController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('topic_show', array('id' => $entity->getTopic()->getId())));
+            return $this->redirect($this->generateUrl('admin_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('ForumPostBundle:Post:new.html.twig', array(
+        return $this->render('ForumUserBundle:User:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Creates a form to create a Post entity.
+     * Creates a form to create a User entity.
      *
-     * @param Post $entity The entity
+     * @param User $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Post $entity)
+    private function createCreateForm(User $entity)
     {
-        $form = $this->createForm(new PostType(), $entity, array(
-            'action' => $this->generateUrl('post_create'),
+        $form = $this->createForm(new UserType(), $entity, array(
+            'action' => $this->generateUrl('admin_create'),
             'method' => 'POST',
         ));
 
@@ -79,68 +73,60 @@ class PostController extends Controller
     }
 
     /**
-     * Displays a form to create a new Post entity.
+     * Displays a form to create a new User entity.
      *
      */
-    public function newAction($id)
+    public function newAction()
     {
-        $entity = new Post();
-
-
-        $em = $this->getDoctrine()->getManager();
-        $topic = $em->getRepository('ForumTopicBundle:Topic')->find($id);
-
-        $entity->setTopic($topic);
-
+        $entity = new User();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('ForumPostBundle:Post:new.html.twig', array(
+        return $this->render('ForumUserBundle:User:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-            'topicId' => $id,
         ));
     }
 
     /**
-     * Finds and displays a Post entity.
+     * Finds and displays a User entity.
      *
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ForumPostBundle:Post')->find($id);
+        $entity = $em->getRepository('ForumUserBundle:User')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Post entity.');
+            throw $this->createNotFoundException('Unable to find User entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('ForumPostBundle:Post:show.html.twig', array(
+        return $this->render('ForumUserBundle:User:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Displays a form to edit an existing Post entity.
+     * Displays a form to edit an existing User entity.
      *
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ForumPostBundle:Post')->find($id);
+        $entity = $em->getRepository('ForumUserBundle:User')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Post entity.');
+            throw $this->createNotFoundException('Unable to find User entity.');
         }
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('ForumPostBundle:Post:edit.html.twig', array(
+        return $this->render('ForumUserBundle:User:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -148,16 +134,16 @@ class PostController extends Controller
     }
 
     /**
-    * Creates a form to edit a Post entity.
+    * Creates a form to edit a User entity.
     *
-    * @param Post $entity The entity
+    * @param User $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Post $entity)
+    private function createEditForm(User $entity)
     {
-        $form = $this->createForm(new PostType(), $entity, array(
-            'action' => $this->generateUrl('post_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new UserType(), $entity, array(
+            'action' => $this->generateUrl('admin_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -166,17 +152,17 @@ class PostController extends Controller
         return $form;
     }
     /**
-     * Edits an existing Post entity.
+     * Edits an existing User entity.
      *
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ForumPostBundle:Post')->find($id);
+        $entity = $em->getRepository('ForumUserBundle:User')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Post entity.');
+            throw $this->createNotFoundException('Unable to find User entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -186,17 +172,17 @@ class PostController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('post_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('admin_edit', array('id' => $id)));
         }
 
-        return $this->render('ForumPostBundle:Post:edit.html.twig', array(
+        return $this->render('ForumUserBundle:User:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
     /**
-     * Deletes a Post entity.
+     * Deletes a User entity.
      *
      */
     public function deleteAction(Request $request, $id)
@@ -206,21 +192,21 @@ class PostController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('ForumPostBundle:Post')->find($id);
+            $entity = $em->getRepository('ForumUserBundle:User')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Post entity.');
+                throw $this->createNotFoundException('Unable to find User entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('post'));
+        return $this->redirect($this->generateUrl('admin'));
     }
 
     /**
-     * Creates a form to delete a Post entity by id.
+     * Creates a form to delete a User entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -229,7 +215,7 @@ class PostController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('post_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('admin_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()

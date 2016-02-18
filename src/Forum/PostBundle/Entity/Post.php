@@ -47,7 +47,7 @@ class Post
      * @var integer
      *
      * @ORM\ManyToOne(targetEntity="Forum\TopicBundle\Entity\Topic", inversedBy="post", cascade={"persist"})
-     * @ORM\JoinColumn(name="topic", referencedColumnName="id")
+     * @ORM\JoinColumn(name="topic", referencedColumnName="id", onDelete="CASCADE")
      */
     private $topic;
 
