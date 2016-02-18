@@ -4,3 +4,22 @@ forum_user_homepage:
 ForumUserBundle_admin:
     resource: "@ForumUserBundle/Resources/config/routing/user.yml"
     prefix:   /admin
+
+admin_pass_edit:
+    path:     /admin/pass/{id}
+    defaults: { _controller: "ForumUserBundle:User:passEdit"}
+
+
+admin_pass_update:
+    path:     /admin/pass/{id}/update
+    defaults: { _controller: "ForumUserBundle:User:passUpdate"}
+    requirements: { _method: post|put }
+
+admin_role_edit:
+    path:     /admin/role/{id}
+    defaults: { _controller: "ForumUserBundle:User:role" }
+
+admin_role_update:
+    path:     /admin/role/{id}/update
+    defaults: { _controller: "ForumUserBundle:User:roleUpdate" }
+    requirements: { _method: post|put }

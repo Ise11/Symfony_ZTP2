@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Forum\UserBundle\Entity\User;
 use Forum\UserBundle\Form\UserType;
+use Forum\UserBundle\Form\PassType;
+use Forum\UserBundle\Form\RoleType;
 
 /**
  * User controller.
@@ -115,19 +117,22 @@ class UserController extends Controller
      */
     public function editAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
+        $userManager = $this->container->get('fos_user.user_manager');
+        $user = $userManager->findUserBy(array('id'=>$id));
 
-        $entity = $em->getRepository('ForumUserBundle:User')->find($id);
+//        $em = $this->getDoctrine()->getManager();
+//
+//        $entity = $em->getRepository('ForumUserBundle:User')->find($id);
 
-        if (!$entity) {
+        if (!$user) {
             throw $this->createNotFoundException('Unable to find User entity.');
         }
 
-        $editForm = $this->createEditForm($entity);
+        $editForm = $this->createEditForm($user);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ForumUserBundle:User:edit.html.twig', array(
-            'entity'      => $entity,
+            'entity'      => $user,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
@@ -157,26 +162,41 @@ class UserController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
-        $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ForumUserBundle:User')->find($id);
+        $userManager = $this->container->get('fos_user.user_manager');
+        $user = $userManager->findUserBy(array('id'=>$id));
 
-        if (!$entity) {
+//        $em = $this->getDoctrine()->getManager();
+//
+//        $entity = $em->getRepository('ForumUserBundle:User')->find($id);
+
+        if (!$user) {
             throw $this->createNotFoundException('Unable to find User entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
+        $editForm = $this->createEditForm($user);
         $editForm->handleRequest($request);
 
+
         if ($editForm->isValid()) {
-            $em->flush();
+
+            $formData = $this->getRequest()->request->get($editForm->getName());
+            $roles = $formData['roles'];
+
+            foreach($roles as $key => $value)
+            {
+                $user->addRole($value);
+            }
+
+            $userManager->updateUser($user);
+//            $em->flush();
 
             return $this->redirect($this->generateUrl('admin_edit', array('id' => $id)));
         }
 
         return $this->render('ForumUserBundle:User:edit.html.twig', array(
-            'entity'      => $entity,
+            'entity'      => $user,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
@@ -220,5 +240,157 @@ class UserController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
+    }
+
+
+    /**
+     * Displays a form to edit an existing User entity.
+     *
+     */
+    public function passEditAction($id)
+    {
+        $userManager = $this->container->get('fos_user.user_manager');
+
+        $user = $userManager->findUserBy(array('id' => $id));
+
+
+        if (!$user) {
+            throw $this->createNotFoundException('Unable to find User entity.');
+        }
+
+        $editForm = $this->createPassForm($user);
+//        $deleteForm = $this->createDeleteForm($id);
+
+        return $this->render('ForumUserBundle:User:pass.html.twig', array(
+            'entity'      => $user,
+            'edit_form'   => $editForm->createView(),
+//            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Creates a form to edit a User entity.
+     *
+     * @param User $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createPassForm(User $entity)
+    {
+        $form = $this->createForm(new PassType(), $entity, array(
+            'action' => $this->generateUrl('admin_pass_update', array('id' => $entity->getId())),
+            'method' => 'PUT',
+        ));
+
+        $form->add('submit', 'submit', array('label' => 'Update'));
+
+        return $form;
+    }
+    /**
+     * Edits an existing User entity.
+     *
+     */
+    public function passUpdateAction(Request $request, $id)
+    {
+        $userManager = $this->container->get('fos_user.user_manager');
+
+        $user = $userManager->findUserBy(array('id' => $id));
+
+        if (!$user) {
+            throw $this->createNotFoundException('Unable to find User entity.');
+        }
+
+//        $deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createPassForm($user);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isValid()) {
+            $userManager->updateUser($user);
+
+            return $this->redirect($this->generateUrl('admin_edit', array('id' => $id)));
+        }
+
+        return $this->render('ForumUserBundle:User:edit.html.twig', array(
+            'entity'      => $user,
+            'edit_form'   => $editForm->createView(),
+//            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function roleAction($id)
+    {
+        $userManager = $this->container->get('fos_user.user_manager');
+        $user = $userManager->findUserBy(array('id'=>$id));
+
+        if (!$user) {
+            throw $this->createNotFoundException('Unable to find User entity.');
+        }else
+
+            $form = $this->createRoleForm($user);
+        //$deleteForm = $this->createDeleteForm($id);
+
+        return $this->render('ForumUserBundle:User:role.html.twig', array(
+            'entity'      => $user,
+            'form'   => $form->createView(),
+            //'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * @param User $entity
+     * @return \Symfony\Component\Form\Form
+     */
+    private function createRoleForm(User $entity)
+    {
+        $form = $this->createForm(new RoleType(), $entity, array(
+            'action' => $this->generateUrl('admin_role_update', array('id' => $entity->getId())),
+            'method' => 'PUT',
+        ));
+
+        $form->add('submit', 'submit', array('label' => 'Update'));
+
+        return $form;
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function roleUpdateAction(Request $request, $id)
+    {
+        $userManager = $this->container->get('fos_user.user_manager');
+        $user = $userManager->findUserBy(array('id'=>$id));
+
+        if (!$user) {
+            throw $this->createNotFoundException('Unable to find User entity.');
+        }
+
+
+        $form = $this->createRoleForm($user);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $formData = $this->getRequest()->request->get($form->getName());
+            $roles = $formData['roles'];
+
+            foreach($roles as $key => $value)
+            {
+                $user->addRole($value);
+            }
+            $userManager->updateUser($user);
+
+            return $this->redirect($this->generateUrl('admin_role_edit', array('id' => $id)));
+        }
+
+        return $this->render('ForumUserBundle:User:role.html.twig', array(
+            'entity'      => $user,
+            'form'   => $form->createView(),
+            //'delete_form' => $deleteForm->createView(),
+        ));
     }
 }
