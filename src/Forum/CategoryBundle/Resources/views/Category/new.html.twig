@@ -1,15 +1,12 @@
 {% extends '::base.html.twig' %}
 
 {% block content -%}
-    <h1>Category creation</h1>
+    <a href="{{ path('category') }}">
+        Powrót
+    </a>
+    <h1>Nowa kategoria</h1>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('category') }}">
-            Back to the list
-        </a>
-    </li>
 </ul>
 {% endblock %}

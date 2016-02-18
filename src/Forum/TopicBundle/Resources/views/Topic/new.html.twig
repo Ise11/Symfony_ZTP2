@@ -1,17 +1,14 @@
 {% extends '::base.html.twig' %}
 
 {% block content -%}
-    <h1>Topic creation</h1>
+    <a href="{{ path('topic') }}">
+        Powrót
+    </a>
+
+    <h1>Nowy temat</h1>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('topic') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
 {% endblock %}
 
 

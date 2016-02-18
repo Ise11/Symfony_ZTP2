@@ -13,11 +13,13 @@
             <ul class="nav navbar-nav navbar-right">
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <p class="navbar-text">
-                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                        {#{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}#}
+                        Jesteś zalogowany jako {{ app.user.username }}
                     </p>
                     <li>
                         <a href="{{ path('fos_user_security_logout') }}">
-                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                            {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
+                            Wyloguj się
                         </a>
                     </li>
                 {% else %}

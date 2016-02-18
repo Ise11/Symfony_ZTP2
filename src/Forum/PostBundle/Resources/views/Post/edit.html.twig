@@ -1,18 +1,16 @@
 {% extends '::base.html.twig' %}
 
 {% block content -%}
-    <h1>Post edit</h1>
+    <a href="{{ path('topic_show', { 'id': entity.topic.id }) }}"> Powrót</a>
+    <h1>Edycja wiadomości</h1>
+
+
 
     {{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('topic_show', { 'id': entity.topic.id }) }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    {{ form(delete_form) }}
+
+
 {% endblock %}
 
 

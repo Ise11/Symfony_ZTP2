@@ -1,32 +1,44 @@
 {% extends '::base.html.twig' %}
 
 {% block content -%}
-    <h1>Category</h1>
+    <h1>{{ entity.name }}</h1>
 
-    <table class="record_properties">
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Tematy</th>
+          
+
+        </tr>
+        </thead>
+
         <tbody>
+        {% for topic in entity.topic %}
             <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
+                <td>
+                    <a href="{{ path('topic_show', { 'id': topic.id }) }}">{{ topic.name }}</a>
+                </td>
+
+
+                {#{% if (app.user.id == post.userId.id) or (is_granted('ROLE_ADMIN'))  %}#}
+                    {#&#123;&#35;{% if is_granted('ROLE_ADMIN') %}&#35;&#125;#}
+                    {#&#123;&#35;{% if  %}&#35;&#125;#}
+                    {#<td><a href="{{ path('post_edit', { 'id': post.id }) }}">Edytuj/Usuń</a></td>#}
+                {#{% endif %}#}
+
             </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ entity.name }}</td>
-            </tr>
+        {% endfor %}
         </tbody>
+
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('category') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('category_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+
+
+        {#<a href="{{ path('category_edit', { 'id': entity.id }) }}">#}
+            {#Edit#}
+        {#</a>#}
+
+    {#<li>{{ form(delete_form) }}</li>#}
+
 {% endblock %}

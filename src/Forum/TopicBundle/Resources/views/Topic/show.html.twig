@@ -28,9 +28,8 @@
             <th>Autor</th>
             <th>Wiadomość</th>
             <th>Data utworzenia</th>
-            {% if is_granted('ROLE_ADMIN') %}
-            <th>Edytuj</th>
-            {% endif %}
+            <th>Edycja</th>
+
         </tr>
     </thead>
 
@@ -45,9 +44,12 @@
             </td>
             <td>{% if post.createdAt %}{{ post.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
             </td>
-            {% if is_granted('ROLE_ADMIN') %}
+            {% if (app.user.id == post.userId.id) or (is_granted('ROLE_ADMIN'))  %}
+            {#{% if is_granted('ROLE_ADMIN') %}#}
+                {#{% if  %}#}
             <td><a href="{{ path('post_edit', { 'id': post.id }) }}">Edytuj/Usuń</a></td>
             {% endif %}
+
         </tr>
     {% endfor %}
     </tbody>

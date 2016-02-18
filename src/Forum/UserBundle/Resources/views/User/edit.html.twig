@@ -1,16 +1,12 @@
 {% extends '::base.html.twig' %}
 
 {% block content -%}
-    <h1>User edit</h1>
+    <a href="{{ path('admin') }}">
+        Powrót
+    </a>
+    <h1></h1>
 
     {{ form(edit_form) }}
+    {{ form(delete_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
 {% endblock %}
