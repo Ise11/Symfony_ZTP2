@@ -33,6 +33,7 @@ class Category
      *
      * @ORM\OneToMany(targetEntity="Forum\TopicBundle\Entity\Topic", mappedBy="category")
      */
+
     private $topic;
 
 
@@ -82,6 +83,7 @@ class Category
      * @param \Forum\TopicBundle\Entity\Topic $topic
      * @return Category
      */
+
     public function addTopic(\Forum\TopicBundle\Entity\Topic $topic)
     {
         $this->topic[] = $topic;
