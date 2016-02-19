@@ -7,7 +7,12 @@
     <h1>Edycja kategorii</h1>
 
     {{ form(edit_form) }}
+	Jeżeli chcesz usunąć kategorie musisz przenieść jej tematy do innej kategorii lub je usunąć
+ {% set topic = entity.topic|first %}
+    {% if topic == null %}
+            {{ form(delete_form) }}
+    {% endif %}
 
-    {{ form(delete_form) }}
+    
 
 {% endblock %}

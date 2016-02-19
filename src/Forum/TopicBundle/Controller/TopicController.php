@@ -34,17 +34,17 @@ class TopicController extends Controller
 
 //        $categories = array()
 
-        $delete_forms = array_map(
-            function ($element) {
-                return $this->createDeleteForm($element->getId())->createView();
-            }
-            , $entities
-        );
+//        $delete_forms = array_map(
+//            function ($element) {
+//                return $this->createDeleteForm($element->getId())->createView();
+//            }
+//            , $entities
+//        );
 
 
         return $this->render('ForumTopicBundle:Topic:index.html.twig', array(
             'entities' => $entities,
-            'delete_forms' => $delete_forms
+  //          'delete_forms' => $delete_forms
 
         ));
     }
@@ -58,8 +58,12 @@ class TopicController extends Controller
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
-        $entity->getPost()[0]->setUserId($this->getUser());
-        $entity->getPost()[0]->setTopic($entity);
+//        $entity->getPost()[0]->setUserId($this->getUser());
+//        $entity->getPost()[0]->setTopic($entity);
+
+	$getPost = $entity->getPost();
+        $getPost[0]->setUserId($this->getUser());
+        $getPost[0]->setTopic($entity);
 
 
         if ($form->isValid()) {

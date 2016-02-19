@@ -41,8 +41,11 @@
                 {##}
                 <td><a href="{{ path('category_show', { 'id': entity.category.id }) }}">{{ entity.category }}</a></td>
                 <td><a href="{{ path('topic_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
-                <td>{{ entity.post[0].userId }}</td>
-                {% if is_granted('ROLE_ADMIN') %}
+            
+		 {#   <td>{{ entity.post[0].userId }}</td>#}
+                <td>{% set post = entity.post|first %}
+                    {{ post.userId }}</td>
+		{% if is_granted('ROLE_ADMIN') %}
                 <td>
                     <a class="" href="{{ path('topic_edit', { 'id': entity.id }) }}">Edytuj/Usuń</a>
                 </td>

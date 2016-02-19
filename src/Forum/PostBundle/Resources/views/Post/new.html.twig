@@ -1,17 +1,17 @@
 {% extends '::base.html.twig' %}
 
 {% block content -%}
-    <h1>Post creation</h1>
+    
 
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('post', { 'topicId': topicId }) }}">
-            Back to the list
+    
+        <a href="{{ path('topic_show', { 'id': topicId }) }}">
+            Powrót
         </a>
-    </li>
-</ul>
+   <h1>Tworzenie nowej wiadomości</h1>
+
+
+	{{ form(form) }}
+
 {% endblock %}
 
 

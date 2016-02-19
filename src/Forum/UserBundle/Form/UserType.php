@@ -15,17 +15,18 @@ class UserType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $roles = [
+        $roles = array(
             'ROLE_USER'=>'ROLE_USER',
             'ROLE_ADMIN'=>'ROLE_ADMIN',
-        ];
+        );
 
         $builder
-            ->add('username')
+            ->add('username',null,array('label'=>'nazwa użytkownika'))
             ->add('email')
-//            ->add('password')
+//            ->add('password',null,array('label'=>'hasło'))
             ->add('plainPassword', 'repeated',
                 array(
+		'label'=>'powtórz hasło',
                 'type' => 'password',
                 'options' => array('translation_domain' => 'FOSUserBundle'),
                 'first_options' => array('label' => 'form.new_password'),
@@ -34,11 +35,11 @@ class UserType extends AbstractType
                 'required' => false
                 ))
 //            ->add('roles')
-            ->add('roles', 'choice', [
+            ->add('roles', 'choice', array(
                 'choices' => $roles,
                 'multiple' => true,
                 'expanded' => true
-            ])
+            ))
 
         ;
     }

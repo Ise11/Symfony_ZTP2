@@ -40,7 +40,7 @@
                 {{ post.userId }}
             </td>
             <td>
-                {{ post.message }}
+                {{ post.message|raw }}
             </td>
             <td>{% if post.createdAt %}{{ post.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
             </td>

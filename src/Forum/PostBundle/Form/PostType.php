@@ -15,10 +15,10 @@ class PostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('message')
+            ->add('message',null,array('label'=>'wiadomość'))
 //            ->add('createdAt')
 //            ->add('userId')
-            ->add('topic', null, array( 'attr' =>array(
+            ->add('topic', null, array('label'=>false, 'attr' =>array(
                 'style'=>'display:none;'
             ) ))
         ;

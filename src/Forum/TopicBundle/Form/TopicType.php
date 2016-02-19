@@ -16,11 +16,11 @@ class TopicType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
+            ->add('name',null, array('label'=>'temat'))
 //            ->add('content')
 //            ->add('date')
-            ->add('category')
-            ->add('post', new PostType())
+            ->add('category', null, array('required'=>true,'label'=>'kategoria'))
+            ->add('post', new PostType(),array('label'=>false))
         ;
     }
     
